@@ -75,12 +75,13 @@ php artisan app:create-admin
   - Intégration de Bootstrap 5.3 et Bootstrap Icons (suppression de Tailwind, Vite configuré, build testé et validé).
   - Styles personnalisés Educ'Academy (`resources/css/app.css`) et façade de lazy-load vidéo (`resources/js/app.js`).
 
-- [ ] **Phase 3 : Base de données & Modèles**
+- [x] **Phase 3 : Base de données & Modèles**
   - Enums (`UserRole`, `UserStatus`, `DocumentType`).
   - Migrations pour `users`, `school_years`, `months`, `videos`, `documents`.
-  - Modèles Eloquent avec relations et `$fillable` stricts.
-  - Commande Artisan `app:create-admin`.
-  - Seeders pour environnement local de test.
+  - Modèles Eloquent (`User`, `SchoolYear`, `Month`, `Video`, `Document`) avec relations, scopes et `$fillable` stricts.
+  - Commande Artisan interactive `php artisan app:create-admin` (saisie masquée du mot de passe).
+  - Seeders (`SchoolYearSeeder`, `DatabaseSeeder`) avec année 2026-2027, mois Octobre-Juin, vidéos et PDF de test.
+  - Tests unitaires et fonctionnels validés (10 tests, 59 assertions).
 
 - [ ] **Phase 4 : Authentification**
   - Inscription avec téléphone (statut `pending` par défaut).
@@ -105,3 +106,4 @@ php artisan app:create-admin
 - [ ] **Phase 7 : Tests & Déploiement**
   - Tests automatisés (Feature tests complets).
   - Guide de mise en ligne et export de structure pour hébergement mutualisé.
+
