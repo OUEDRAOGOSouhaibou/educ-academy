@@ -3,12 +3,15 @@
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
 :root {
-    --ea-primary: #1e3a8a;       /* Bleu académique */
-    --ea-primary-hover: #1e40af;
-    --ea-accent: #f59e0b;        /* Ambre / Énergie */
-    --ea-accent-hover: #d97706;
-    --ea-bg-soft: #f8fafc;
-    --ea-card-border: #e2e8f0;
+    /* Palette officielle calibrée sur le logo Educ'Academy */
+    --ea-primary: #095b86;        /* Bleu Pétrole / Océan profond */
+    --ea-primary-hover: #074768;
+    --ea-primary-light: #e8f3f8;
+    --ea-accent: #dd520e;         /* Orange Mandarine chaud */
+    --ea-accent-hover: #c24407;
+    --ea-accent-light: #fef4ee;
+    --ea-bg-soft: #f4f8fa;
+    --ea-card-border: #dbe7ed;
 }
 
 body {
@@ -24,17 +27,23 @@ main {
     flex: 1 0 auto;
 }
 
+/* Utilitaires couleurs de marque */
+.text-ea-primary { color: var(--ea-primary) !important; }
+.text-ea-accent { color: var(--ea-accent) !important; }
+.bg-ea-primary { background-color: var(--ea-primary) !important; color: #fff; }
+.bg-ea-accent { background-color: var(--ea-accent) !important; color: #fff; }
+
 /* Cartes et conteneurs */
 .card-ea {
     border: 1px solid var(--ea-card-border);
-    border-radius: 0.75rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border-radius: 0.85rem;
+    box-shadow: 0 2px 5px rgba(9, 91, 134, 0.05);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .card-ea-hover:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px -1px rgba(9, 91, 134, 0.12), 0 3px 6px -2px rgba(9, 91, 134, 0.08);
 }
 
 /* Boutons personnalisés */
@@ -60,6 +69,104 @@ main {
     background-color: var(--ea-accent-hover);
     border-color: var(--ea-accent-hover);
     color: #ffffff;
+}
+
+/* --- Styles exclusifs pour les pages d'Authentification (Connexion / Inscription) --- */
+.auth-page {
+    background: radial-gradient(circle at 10% 15%, rgba(9, 91, 134, 0.08) 0%, rgba(244, 248, 250, 0) 50%),
+                radial-gradient(circle at 90% 85%, rgba(221, 82, 14, 0.07) 0%, rgba(244, 248, 250, 0) 50%),
+                #f4f8fa;
+    min-height: 100vh;
+}
+
+.auth-card {
+    border: 1px solid rgba(219, 231, 237, 0.8);
+    border-radius: 1.25rem;
+    box-shadow: 0 20px 40px -10px rgba(9, 91, 134, 0.12), 0 5px 15px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.auth-card-top-bar {
+    height: 5px;
+    background: linear-gradient(90deg, var(--ea-primary) 0%, #0d7db3 60%, var(--ea-accent) 100%);
+    width: 100%;
+}
+
+.auth-logo-badge {
+    width: 82px;
+    height: 82px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    box-shadow: 0 6px 18px rgba(9, 91, 134, 0.2);
+    transition: transform 0.25s ease;
+}
+
+.auth-logo-badge:hover {
+    transform: scale(1.05);
+}
+
+.auth-input-group .input-group-text {
+    background-color: #f8fafc;
+    border-color: #d1e2eb;
+    color: var(--ea-primary);
+}
+
+.auth-input-group .form-control {
+    border-color: #d1e2eb;
+    padding: 0.68rem 0.9rem;
+    font-size: 0.95rem;
+}
+
+.auth-input-group .form-control:focus {
+    border-color: var(--ea-primary);
+    box-shadow: 0 0 0 0.25rem rgba(9, 91, 134, 0.15);
+}
+
+.btn-auth-primary {
+    background: linear-gradient(135deg, var(--ea-primary) 0%, #0d7db3 100%);
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1rem;
+    font-weight: 700;
+    border-radius: 0.65rem;
+    box-shadow: 0 4px 14px rgba(9, 91, 134, 0.28);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.btn-auth-primary:hover, .btn-auth-primary:focus {
+    background: linear-gradient(135deg, var(--ea-primary-hover) 0%, var(--ea-primary) 100%);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(9, 91, 134, 0.38);
+}
+
+.btn-auth-register {
+    border: 2px solid var(--ea-accent);
+    color: var(--ea-accent);
+    font-weight: 700;
+    padding: 0.6rem 1rem;
+    border-radius: 0.65rem;
+    transition: all 0.2s ease;
+    background-color: transparent;
+}
+
+.btn-auth-register:hover, .btn-auth-register:focus {
+    background-color: var(--ea-accent);
+    color: #ffffff;
+    border-color: var(--ea-accent);
+    box-shadow: 0 4px 14px rgba(221, 82, 14, 0.3);
+    transform: translateY(-1px);
+}
+
+.auth-info-box {
+    background-color: var(--ea-accent-light);
+    border: 1px dashed rgba(221, 82, 14, 0.35);
+    color: #8c3206;
+    border-radius: 0.65rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.875rem;
 }
 
 /* Lecteur vidéo façade (lazy load YouTube pour économiser les données mobiles) */
@@ -89,7 +196,7 @@ main {
     transform: translate(-50%, -50%);
     width: 64px;
     height: 64px;
-    background: rgba(30, 58, 138, 0.9);
+    background: rgba(9, 91, 134, 0.9);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -102,7 +209,7 @@ main {
 
 .video-facade:hover .play-btn {
     transform: translate(-50%, -50%) scale(1.1);
-    background: #dc2626; /* Rouge type YouTube au survol */
+    background: var(--ea-accent); /* Orange vif au survol */
 }
 
 .video-facade iframe {
