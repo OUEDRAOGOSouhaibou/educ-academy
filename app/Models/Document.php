@@ -87,3 +87,4 @@ class Document extends Model
         return false;
     }
 }
+

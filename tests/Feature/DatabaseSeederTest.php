@@ -53,3 +53,4 @@ class DatabaseSeederTest extends TestCase
         $this->assertEquals(UserStatus::Blocked, $blockedStudent->status);
     }
 }
+

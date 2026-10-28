@@ -127,3 +127,4 @@ class SchoolYearSeeder extends Seeder
         }
     }
 }
+

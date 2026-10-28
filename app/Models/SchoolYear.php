@@ -38,3 +38,4 @@ class SchoolYear extends Model
         return static::current()->first();
     }
 }
+

@@ -46,3 +46,4 @@ class CreateAdminCommandTest extends TestCase
         $this->assertDatabaseMissing('users', ['phone' => '70112233']);
     }
 }
+

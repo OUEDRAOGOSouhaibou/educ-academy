@@ -31,9 +31,11 @@ class ModelStructureTest extends TestCase
         // Vérification que le téléphone a été automatiquement normalisé
         $this->assertEquals('+22670123456', $user->phone);
 
-        // Vérification que role et status n'ont pas été assignés via le constructeur
-        $this->assertNull($user->getAttributes()['role'] ?? null);
-        $this->assertNull($user->getAttributes()['status'] ?? null);
+        // Vérification que role et status n'ont pas été modifiés via le constructeur
+        $this->assertEquals(UserRole::Student, $user->role);
+        $this->assertEquals(UserStatus::Pending, $user->status);
+        $this->assertNotEquals('admin', $user->getAttributes()['role']);
+        $this->assertNotEquals('approved', $user->getAttributes()['status']);
 
         $user->save();
 
@@ -121,3 +123,4 @@ class ModelStructureTest extends TestCase
         $this->assertEquals('2,5 Mo', $doc2->formatted_size);
     }
 }
+

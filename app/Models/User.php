@@ -31,6 +31,17 @@ class User extends Authenticatable
     ];
 
     /**
+     * Valeurs par défaut des attributs du modèle.
+     *
+     * @var array<string, mixed>
+     */
+    protected $attributes = [
+        'role' => 'student',
+        'status' => 'pending',
+        'must_change_password' => false,
+    ];
+
+    /**
      * Les attributs masqués pour la sérialisation.
      *
      * @var list<string>

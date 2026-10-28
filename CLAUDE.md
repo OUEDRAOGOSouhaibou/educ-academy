@@ -83,12 +83,15 @@ php artisan app:create-admin
   - Seeders (`SchoolYearSeeder`, `DatabaseSeeder`) avec année 2026-2027, mois Octobre-Juin, vidéos et PDF de test.
   - Tests unitaires et fonctionnels validés (10 tests, 59 assertions).
 
-- [ ] **Phase 4 : Authentification**
-  - Inscription avec téléphone (statut `pending` par défaut).
-  - Connexion téléphone + mot de passe.
-  - Middleware de vérification du statut (`pending`, `approved`, `blocked`).
+- [x] **Phase 4 : Authentification & Sécurité**
+  - Formulaires et contrôleurs d'inscription et de connexion (identifiant `phone` normalisé).
+  - Rate limiting sur les connexions et inscriptions contre le bruteforce.
+  - Attribution stricte côté serveur de `role = student` et `status = pending`.
+  - Middleware `EnsureAccountIsActive` vérifié à chaque requête : déconnexion immédiate des élèves `blocked`, redirection des `pending`.
   - Changement forcé du mot de passe (`must_change_password`).
-  - Gestion des élèves par l'administrateur (validation, blocage, réinitialisation de mot de passe).
+  - Module d'administration des élèves (`StudentController`) : validation, suspension, déblocage, suppression, génération de mot de passe temporaire pour WhatsApp.
+  - Vues Blade Bootstrap 5 : `layouts/app`, `layouts/auth`, `auth/login`, `auth/register`, `auth/change-password`, `student/pending`, `admin/students/index`.
+  - Tests unitaires et fonctionnels validés (22 tests, 110 assertions).
 
 - [ ] **Phase 5 : Gestion des contenus**
   - CRUD Années scolaires et Mois.
