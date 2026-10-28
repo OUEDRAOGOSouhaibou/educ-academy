@@ -109,7 +109,11 @@ php artisan app:create-admin
   - Navigation responsive mobile-first testée et adaptée aux écrans smartphones (360px).
   - Tests automatisés validés (35 tests, 155 assertions au total).
 
-- [ ] **Phase 7 : Tests & Déploiement**
-  - Tests automatisés (Feature tests complets).
-  - Guide de mise en ligne et export de structure pour hébergement mutualisé.
+- [x] **Phase 7 : Tests & Déploiement**
+  - Suite de tests complète validée avec 100% de réussite (35 tests, 155 assertions).
+  - Validation complète de tous les points du cahier des charges.
+  - Tests en conditions réelles validés en local avec XAMPP.
+  - Intégration du logo officiel Educ'Academy dans les layouts.
+  - Rédaction du guide pas-à-pas pour la mise en production sur hébergement mutualisé (`docs/guide-deploiement.md`).
+  - Procédures de sauvegarde simples (base MySQL et PDF privés) documentées.
 
