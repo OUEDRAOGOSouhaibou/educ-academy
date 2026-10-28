@@ -102,12 +102,12 @@ php artisan app:create-admin
   - Vues Blade Administrateur (`admin/months/index`, `admin/months/show`).
   - Tests automatisés validés (29 tests, 134 assertions au total).
 
-- [ ] **Phase 6 : Interfaces**
-  - Layouts Blade (Public, Élève, Admin).
-  - Page d'accueil publique.
-  - Espace Élève (consultation par mois, vidéos, PDF).
-  - Tableau de bord Administrateur (statistiques, listes, modales).
-  - Responsive testé sur format smartphone (360px).
+- [x] **Phase 6 : Interfaces & Expérience Utilisateur**
+  - Page d'accueil publique (`/`, `welcome.blade.php`) : identité Educ'Academy, valorisation des atouts, boutons Connexion / Inscription.
+  - Espace Élève (`student.dashboard`, `student.months.show`) : navigation mois par mois, façade miniature vidéo responsive au clic, filtres par type de document PDF (Cours, Séries, Devoirs, Corrigés) et affichage préalable de la taille de fichier en Mo/Ko.
+  - Tableau de bord Administrateur (`admin.dashboard`) : métriques en temps réel (total élèves, en attente, autorisés, bloqués, vidéos publiées, PDF), raccourcis d'actions et dernières inscriptions.
+  - Navigation responsive mobile-first testée et adaptée aux écrans smartphones (360px).
+  - Tests automatisés validés (35 tests, 155 assertions au total).
 
 - [ ] **Phase 7 : Tests & Déploiement**
   - Tests automatisés (Feature tests complets).

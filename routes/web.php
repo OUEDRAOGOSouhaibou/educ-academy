@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\DocumentController as AdminDocumentController;
 use App\Http\Controllers\Admin\MonthController as AdminMonthController;
 use App\Http\Controllers\Admin\StudentController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PasswordChangeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DocumentDownloadController;
+use App\Http\Controllers\Student\DashboardController as StudentDashboardController;
 use App\Http\Controllers\Student\PendingNoticeController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 Route::get('/', function () {
-    return redirect()->route('login');
+    return view('welcome');
 })->name('home');
 
 /*
@@ -53,9 +55,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/documents/{document}/consulter', [DocumentDownloadController::class, 'view'])->name('documents.view');
 
     // Espace Élève (accessible aux élèves autorisés)
-    Route::get('/espace-eleve', function () {
-        return view('student.dashboard');
-    })->name('student.dashboard');
+    Route::prefix('espace-eleve')->name('student.')->group(function () {
+        Route::get('/', [StudentDashboardController::class, 'index'])->name('dashboard');
+        Route::get('/mois/{month}', [StudentDashboardController::class, 'showMonth'])->name('months.show');
+    });
 });
 
 /*
@@ -64,9 +67,8 @@ Route::middleware('auth')->group(function () {
 |--------------------------------------------------------------------------
 */
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', function () {
-        return redirect()->route('admin.months.index');
-    })->name('dashboard');
+    // Tableau de bord principal
+    Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
 
     // 1. Gestion des élèves
     Route::prefix('eleves')->name('students.')->group(function () {

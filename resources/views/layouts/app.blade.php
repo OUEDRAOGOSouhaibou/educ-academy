@@ -29,6 +29,11 @@
                     @auth
                         @if(Auth::user()->isAdmin())
                             <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active fw-bold' : '' }}" href="{{ route('admin.dashboard') }}">
+                                    <i class="bi bi-speedometer2 me-1"></i> Tableau de bord
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link {{ request()->routeIs('admin.months.*') ? 'active fw-bold' : '' }}" href="{{ route('admin.months.index') }}">
                                     <i class="bi bi-calendar3 me-1"></i> Mois & Contenus
                                 </a>
@@ -40,7 +45,7 @@
                             </li>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('student.dashboard') ? 'active fw-bold' : '' }}" href="{{ route('student.dashboard') }}">
+                                <a class="nav-link {{ request()->routeIs('student.*') ? 'active fw-bold' : '' }}" href="{{ route('student.dashboard') }}">
                                     <i class="bi bi-play-circle me-1"></i> Mes Cours & PDF
                                 </a>
                             </li>

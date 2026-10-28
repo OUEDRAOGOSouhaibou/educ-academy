@@ -251,8 +251,8 @@ class ContentManagementTest extends TestCase
 
         $responseDocx->assertSessionHasErrors('file');
 
-        // Fichier dépassant 20 Mo (ex: 21 Mo = 21504 Ko)
-        $oversizedPdf = UploadedFile::fake()->create('huge.pdf', 21504, 'application/pdf');
+        // Fichier dépassant 20 Mo (ex: 20500 Ko > 20480 Ko)
+        $oversizedPdf = UploadedFile::fake()->create('huge.pdf', 20500, 'application/pdf');
 
         $responseOversized = $this->actingAs($this->admin)->post(route('admin.documents.store'), [
             'month_id' => $this->publishedMonth->id,
@@ -275,3 +275,4 @@ class ContentManagementTest extends TestCase
         $response->assertSessionHasErrors('youtube_url');
     }
 }
+

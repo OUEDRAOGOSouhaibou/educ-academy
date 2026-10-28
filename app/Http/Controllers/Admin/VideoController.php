@@ -56,3 +56,4 @@ class VideoController extends Controller
         return back()->with('info', "La vidéo « {$title} » a été supprimée.");
     }
 }
+

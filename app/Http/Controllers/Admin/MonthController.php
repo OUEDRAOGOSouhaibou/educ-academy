@@ -94,3 +94,4 @@ class MonthController extends Controller
         );
     }
 }
+

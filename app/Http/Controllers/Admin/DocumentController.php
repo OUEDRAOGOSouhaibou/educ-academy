@@ -75,3 +75,4 @@ class DocumentController extends Controller
         return back()->with('info', "Le document « {$title} » a été supprimé du disque et de la base.");
     }
 }
+
