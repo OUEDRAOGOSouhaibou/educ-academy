@@ -1,11 +1,115 @@
-@import 'tailwindcss';
+/* Educ'Academy - Styles personnalisés & Intégration Bootstrap */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+:root {
+    --ea-primary: #1e3a8a;       /* Bleu académique */
+    --ea-primary-hover: #1e40af;
+    --ea-accent: #f59e0b;        /* Ambre / Énergie */
+    --ea-accent-hover: #d97706;
+    --ea-bg-soft: #f8fafc;
+    --ea-card-border: #e2e8f0;
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+body {
+    background-color: var(--ea-bg-soft);
+    color: #1e293b;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* Cartes et conteneurs */
+.card-ea {
+    border: 1px solid var(--ea-card-border);
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card-ea-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* Boutons personnalisés */
+.btn-ea-primary {
+    background-color: var(--ea-primary);
+    border-color: var(--ea-primary);
+    color: #ffffff;
+}
+
+.btn-ea-primary:hover, .btn-ea-primary:focus {
+    background-color: var(--ea-primary-hover);
+    border-color: var(--ea-primary-hover);
+    color: #ffffff;
+}
+
+.btn-ea-accent {
+    background-color: var(--ea-accent);
+    border-color: var(--ea-accent);
+    color: #ffffff;
+}
+
+.btn-ea-accent:hover, .btn-ea-accent:focus {
+    background-color: var(--ea-accent-hover);
+    border-color: var(--ea-accent-hover);
+    color: #ffffff;
+}
+
+/* Lecteur vidéo façade (lazy load YouTube pour économiser les données mobiles) */
+.video-facade {
+    position: relative;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+    background-color: #000;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.video-facade img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-facade .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    background: rgba(30, 58, 138, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.video-facade:hover .play-btn {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: #dc2626; /* Rouge type YouTube au survol */
+}
+
+.video-facade iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
