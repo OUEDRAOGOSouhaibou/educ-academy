@@ -70,3 +70,4 @@ class LoginController extends Controller
         return redirect()->intended(route('student.dashboard'));
     }
 }
+

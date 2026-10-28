@@ -26,3 +26,4 @@ class PendingNoticeController extends Controller
         ]);
     }
 }
+

@@ -254,3 +254,4 @@ function copyWhatsappMessage(name, code, phone) {
 }
 </script>
 @endsection
+

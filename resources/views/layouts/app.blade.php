@@ -29,6 +29,11 @@
                     @auth
                         @if(Auth::user()->isAdmin())
                             <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('admin.months.*') ? 'active fw-bold' : '' }}" href="{{ route('admin.months.index') }}">
+                                    <i class="bi bi-calendar3 me-1"></i> Mois & Contenus
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link {{ request()->routeIs('admin.students.*') ? 'active fw-bold' : '' }}" href="{{ route('admin.students.index') }}">
                                     <i class="bi bi-people me-1"></i> Gestion Élèves
                                 </a>
@@ -136,3 +141,4 @@
 
 </body>
 </html>
+

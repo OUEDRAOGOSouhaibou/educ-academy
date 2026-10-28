@@ -93,11 +93,14 @@ php artisan app:create-admin
   - Vues Blade Bootstrap 5 : `layouts/app`, `layouts/auth`, `auth/login`, `auth/register`, `auth/change-password`, `student/pending`, `admin/students/index`.
   - Tests unitaires et fonctionnels validés (22 tests, 110 assertions).
 
-- [ ] **Phase 5 : Gestion des contenus**
-  - CRUD Années scolaires et Mois.
-  - CRUD Vidéos (extraction YouTube ID, lecteur nocookie).
-  - CRUD Documents PDF (validation MIME, stockage privé, suppression fichiers sur disque).
-  - Contrôleur de streaming et téléchargement sécurisé.
+- [x] **Phase 5 : Gestion des contenus**
+  - CRUD des mois scolaires (`MonthController`) : publication/masquage instantané, respect du tri `position` (Octobre=1).
+  - CRUD des vidéos (`VideoController`) : extraction de l'identifiant YouTube, intégration nocookie, façade miniature lazy-load.
+  - CRUD des documents PDF (`DocumentController`) : validation d'extension et MIME réel `application/pdf`, limite 20 Mo, stockage sécurisé dans `storage/app/private/documents`.
+  - Contrôleur de téléchargement et consultation sécurisée (`DocumentDownloadController`) : protection stricte (interdiction aux visiteurs et mois non publiés, nom lisible au téléchargement).
+  - Nettoyage physique automatique des PDF sur le disque lors du remplacement de fichier ou de la suppression d'un document ou d'un mois.
+  - Vues Blade Administrateur (`admin/months/index`, `admin/months/show`).
+  - Tests automatisés validés (29 tests, 134 assertions au total).
 
 - [ ] **Phase 6 : Interfaces**
   - Layouts Blade (Public, Élève, Admin).

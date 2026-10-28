@@ -122,3 +122,4 @@ class StudentController extends Controller
         return back()->with('info', "Le compte de {$name} a été supprimé.");
     }
 }
+

@@ -173,3 +173,4 @@ class AuthenticationTest extends TestCase
         $response->assertForbidden();
     }
 }
+

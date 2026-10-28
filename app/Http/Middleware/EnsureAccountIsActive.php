@@ -54,3 +54,4 @@ class EnsureAccountIsActive
         return $next($request);
     }
 }
+
