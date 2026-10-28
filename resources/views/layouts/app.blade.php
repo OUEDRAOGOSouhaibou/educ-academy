@@ -16,7 +16,11 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm py-2">
         <div class="container">
             <a class="navbar-brand fw-bold d-flex align-items-center" href="{{ url('/') }}">
-                <i class="bi bi-mortarboard-fill text-warning me-2 fs-4"></i>
+                @if(file_exists(public_path('images/logo.jpeg')))
+                    <img src="{{ asset('images/logo.jpeg') }}" alt="Logo Educ'Academy" class="rounded-circle me-2 border border-warning" style="width: 34px; height: 34px; object-fit: cover;">
+                @else
+                    <i class="bi bi-mortarboard-fill text-warning me-2 fs-4"></i>
+                @endif
                 <span>Educ'<span class="text-warning">Academy</span></span>
             </a>
 

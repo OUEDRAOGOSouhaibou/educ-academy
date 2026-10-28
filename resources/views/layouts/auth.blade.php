@@ -18,9 +18,13 @@
                 <!-- Logo & Titre de la plateforme -->
                 <div class="text-center mb-4">
                     <a href="{{ url('/') }}" class="text-decoration-none">
-                        <div class="d-inline-flex align-items-center justify-content-center bg-primary text-white rounded-circle mb-2" style="width: 60px; height: 60px;">
-                            <i class="bi bi-mortarboard-fill fs-2 text-warning"></i>
-                        </div>
+                        @if(file_exists(public_path('images/logo.jpeg')))
+                            <img src="{{ asset('images/logo.jpeg') }}" alt="Educ'Academy" class="rounded-circle shadow-sm mb-2 border border-warning" style="width: 70px; height: 70px; object-fit: cover;">
+                        @else
+                            <div class="d-inline-flex align-items-center justify-content-center bg-primary text-white rounded-circle mb-2" style="width: 60px; height: 60px;">
+                                <i class="bi bi-mortarboard-fill fs-2 text-warning"></i>
+                            </div>
+                        @endif
                         <h2 class="fw-bold text-dark mb-0">Educ'<span class="text-warning">Academy</span></h2>
                     </a>
                     <p class="text-muted small mt-1 mb-0">Terminale &bull; Mathématiques</p>
