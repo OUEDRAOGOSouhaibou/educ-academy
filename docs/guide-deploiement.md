@@ -137,3 +137,4 @@ Pour ne jamais perdre les données des élèves et les documents :
 ### Sauvegarde 2 : Les fichiers PDF privés
 - **Dossier à sauvegarder :** `storage/app/private/documents/`.
 - **Action :** Téléchargez ce dossier via le gestionnaire de fichiers ou FTP pour en garder une copie locale.
+
