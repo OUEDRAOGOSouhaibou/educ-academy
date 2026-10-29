@@ -6,12 +6,12 @@
     <!-- Bannière Hero -->
     <div class="row align-items-center py-4 py-lg-5">
         <div class="col-12 col-lg-7 text-center text-lg-start mb-4 mb-lg-0">
-            <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill fw-bold mb-3 border border-primary border-opacity-25">
-                <i class="bi bi-mortarboard-fill me-1 text-warning"></i> Terminale &bull; Mathématiques
+            <span class="badge badge-ea-primary px-3 py-2 rounded-pill fw-bold mb-3 shadow-xs">
+                <i class="bi bi-mortarboard-fill me-1 text-ea-accent"></i> Terminale &bull; Mathématiques
             </span>
 
             <h1 class="display-5 fw-bold text-dark mb-3">
-                Révisez et réussissez vos <span class="text-primary">Mathématiques</span>
+                Révisez et réussissez vos <span class="text-ea-primary">Mathématiques</span>
             </h1>
 
             <p class="lead text-secondary mb-4" style="max-width: 600px;">
@@ -23,7 +23,7 @@
                     <a href="{{ route('login') }}" class="btn btn-primary btn-lg fw-bold px-4 py-3 shadow-sm">
                         <i class="bi bi-box-arrow-in-right me-2"></i> Se connecter
                     </a>
-                    <a href="{{ route('register') }}" class="btn btn-warning btn-lg fw-bold text-dark px-4 py-3 shadow-sm">
+                    <a href="{{ route('register') }}" class="btn btn-ea-accent btn-lg fw-bold px-4 py-3 shadow-sm">
                         <i class="bi bi-person-plus-fill me-2"></i> S'inscrire gratuitement
                     </a>
                 @else
@@ -46,34 +46,34 @@
         </div>
 
         <div class="col-12 col-lg-5 text-center">
-            <div class="card card-ea border-0 bg-white p-4 shadow-sm text-start">
+            <div class="card card-ea border-0 bg-white p-4 shadow-sm text-start card-ea-top-accent">
                 <div class="d-flex align-items-center mb-3">
-                    <div class="p-2 bg-primary text-white rounded-3 me-3">
-                        <i class="bi bi-collection-play-fill fs-3 text-warning"></i>
+                    <div class="p-2 bg-ea-primary text-white rounded-3 me-3 d-flex align-items-center justify-content-center" style="width: 48px; height: 48px;">
+                        <i class="bi bi-collection-play-fill fs-4 text-white"></i>
                     </div>
                     <div>
-                        <h5 class="fw-bold mb-0 text-dark">Educ'Academy</h5>
+                        <h5 class="fw-bold mb-0 text-dark">Educ'<span class="text-ea-accent">Academy</span></h5>
                         <small class="text-muted">Votre espace de travail de Terminale</small>
                     </div>
                 </div>
 
                 <div class="list-group list-group-flush border-top border-bottom my-2">
                     <div class="list-group-item px-0 py-3 d-flex align-items-center">
-                        <i class="bi bi-phone text-primary fs-4 me-3"></i>
+                        <i class="bi bi-phone text-ea-primary fs-4 me-3"></i>
                         <div>
                             <div class="fw-bold text-dark">100% optimisé smartphone</div>
                             <small class="text-muted">Utilisable confortablement sur tout téléphone Android.</small>
                         </div>
                     </div>
                     <div class="list-group-item px-0 py-3 d-flex align-items-center">
-                        <i class="bi bi-calendar-check text-success fs-4 me-3"></i>
+                        <i class="bi bi-calendar-check text-ea-accent fs-4 me-3"></i>
                         <div>
                             <div class="fw-bold text-dark">Organisation mois par mois</div>
                             <small class="text-muted">Retrouvez facilement les cours des mois passés pour vos révisions.</small>
                         </div>
                     </div>
                     <div class="list-group-item px-0 py-3 d-flex align-items-center">
-                        <i class="bi bi-file-earmark-check text-warning fs-4 me-3"></i>
+                        <i class="bi bi-file-earmark-check text-success fs-4 me-3"></i>
                         <div>
                             <div class="fw-bold text-dark">PDF & Corrigés officiels</div>
                             <small class="text-muted">Consultez en ligne ou téléchargez selon votre forfait.</small>
@@ -91,14 +91,14 @@
     <!-- Section Avantages -->
     <div class="py-5 border-top">
         <div class="text-center mb-5">
-            <span class="badge bg-warning bg-opacity-25 text-dark fw-bold px-3 py-1 rounded-pill mb-2">Pourquoi Educ'Academy ?</span>
+            <span class="badge badge-ea-accent fw-bold px-3 py-1 rounded-pill mb-2">Pourquoi Educ'Academy ?</span>
             <h2 class="h3 fw-bold text-dark">Une méthode adaptée aux réalités des élèves</h2>
             <p class="text-muted small">Fini le chaos des fichiers mélangés dans les discussions WhatsApp.</p>
         </div>
 
         <div class="row g-4">
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="card card-ea border-0 bg-white h-100 p-4 shadow-sm text-center">
+                <div class="card card-ea card-ea-hover border-0 bg-white h-100 p-4 shadow-sm text-center">
                     <div class="d-inline-flex align-items-center justify-content-center bg-danger bg-opacity-10 text-danger rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px;">
                         <i class="bi bi-youtube fs-2"></i>
                     </div>
@@ -110,8 +110,8 @@
             </div>
 
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="card card-ea border-0 bg-white h-100 p-4 shadow-sm text-center">
-                    <div class="d-inline-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px;">
+                <div class="card card-ea card-ea-hover border-0 bg-white h-100 p-4 shadow-sm text-center">
+                    <div class="d-inline-flex align-items-center justify-content-center bg-ea-primary-light text-ea-primary rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px;">
                         <i class="bi bi-calendar3 fs-2"></i>
                     </div>
                     <h5 class="fw-bold text-dark mb-2">Parcours par mois</h5>
@@ -122,7 +122,7 @@
             </div>
 
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="card card-ea border-0 bg-white h-100 p-4 shadow-sm text-center">
+                <div class="card card-ea card-ea-hover border-0 bg-white h-100 p-4 shadow-sm text-center">
                     <div class="d-inline-flex align-items-center justify-content-center bg-success bg-opacity-10 text-success rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px;">
                         <i class="bi bi-file-earmark-pdf fs-2"></i>
                     </div>
@@ -134,9 +134,9 @@
             </div>
 
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="card card-ea border-0 bg-white h-100 p-4 shadow-sm text-center">
-                    <div class="d-inline-flex align-items-center justify-content-center bg-warning bg-opacity-25 text-warning rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px;">
-                        <i class="bi bi-shield-lock-fill fs-2 text-dark"></i>
+                <div class="card card-ea card-ea-hover border-0 bg-white h-100 p-4 shadow-sm text-center">
+                    <div class="d-inline-flex align-items-center justify-content-center bg-ea-accent-light text-ea-accent rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px;">
+                        <i class="bi bi-shield-lock-fill fs-2 text-ea-accent"></i>
                     </div>
                     <h5 class="fw-bold text-dark mb-2">Espace sécurisé</h5>
                     <p class="text-secondary small mb-0">
@@ -148,21 +148,21 @@
     </div>
 
     <!-- Bannière d'appel à l'action finale -->
-    <div class="card border-0 bg-primary text-white p-4 p-md-5 my-4 shadow-sm rounded-4 text-center">
-        <h3 class="fw-bold mb-2">Prêt à démarrer vos révisions ?</h3>
+    <div class="card border-0 ea-cta-banner p-4 p-md-5 my-4 text-center">
+        <h3 class="fw-bold mb-2 text-white">Prêt à démarrer vos révisions ?</h3>
         <p class="text-white-50 mb-4" style="max-width: 550px; margin: 0 auto;">
             Créez votre compte en quelques secondes ou connectez-vous avec votre numéro de téléphone.
         </p>
         <div class="d-flex justify-content-center gap-2">
             @guest
-                <a href="{{ route('register') }}" class="btn btn-warning btn-lg fw-bold text-dark px-4 shadow-sm">
+                <a href="{{ route('register') }}" class="btn btn-ea-accent btn-lg fw-bold px-4 shadow-sm">
                     <i class="bi bi-person-plus me-1"></i> S'inscrire maintenant
                 </a>
                 <a href="{{ route('login') }}" class="btn btn-outline-light btn-lg px-4">
                     <i class="bi bi-box-arrow-in-right me-1"></i> Se connecter
                 </a>
             @else
-                <a href="{{ route('student.dashboard') }}" class="btn btn-warning btn-lg fw-bold text-dark px-4 shadow-sm">
+                <a href="{{ route('student.dashboard') }}" class="btn btn-ea-accent btn-lg fw-bold px-4 shadow-sm">
                     <i class="bi bi-arrow-right-circle me-1"></i> Ouvrir mon espace cours
                 </a>
             @endguest

@@ -10,18 +10,18 @@
     <!-- Polices & Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="d-flex flex-column min-vh-100 bg-light">
+<body class="d-flex flex-column min-vh-100">
 
     <!-- Barre de navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm py-2">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-ea shadow-sm py-2">
         <div class="container">
             <a class="navbar-brand fw-bold d-flex align-items-center" href="{{ url('/') }}">
                 @if(file_exists(public_path('images/logo.jpeg')))
-                    <img src="{{ asset('images/logo.jpeg') }}" alt="Logo Educ'Academy" class="rounded-circle me-2 border border-warning" style="width: 34px; height: 34px; object-fit: cover;">
+                    <img src="{{ asset('images/logo.jpeg') }}" alt="Logo Educ'Academy" class="brand-logo-img me-2 shadow-sm">
                 @else
-                    <i class="bi bi-mortarboard-fill text-warning me-2 fs-4"></i>
+                    <i class="bi bi-mortarboard-fill text-ea-accent me-2 fs-4"></i>
                 @endif
-                <span>Educ'<span class="text-warning">Academy</span></span>
+                <span class="text-white">Educ'<span class="text-ea-accent fw-bold">Academy</span></span>
             </a>
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Menu">
@@ -33,23 +33,23 @@
                     @auth
                         @if(Auth::user()->isAdmin())
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active fw-bold' : '' }}" href="{{ route('admin.dashboard') }}">
+                                <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
                                     <i class="bi bi-speedometer2 me-1"></i> Tableau de bord
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('admin.months.*') ? 'active fw-bold' : '' }}" href="{{ route('admin.months.index') }}">
+                                <a class="nav-link {{ request()->routeIs('admin.months.*') ? 'active' : '' }}" href="{{ route('admin.months.index') }}">
                                     <i class="bi bi-calendar3 me-1"></i> Mois & Contenus
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('admin.students.*') ? 'active fw-bold' : '' }}" href="{{ route('admin.students.index') }}">
+                                <a class="nav-link {{ request()->routeIs('admin.students.*') ? 'active' : '' }}" href="{{ route('admin.students.index') }}">
                                     <i class="bi bi-people me-1"></i> Gestion Élèves
                                 </a>
                             </li>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('student.*') ? 'active fw-bold' : '' }}" href="{{ route('student.dashboard') }}">
+                                <a class="nav-link {{ request()->routeIs('student.*') ? 'active' : '' }}" href="{{ route('student.dashboard') }}">
                                     <i class="bi bi-play-circle me-1"></i> Mes Cours & PDF
                                 </a>
                             </li>
@@ -65,14 +65,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-warning btn-sm w-100 fw-semibold text-dark" href="{{ route('register') }}">
+                            <a class="btn btn-ea-accent btn-sm w-100 fw-bold shadow-sm" href="{{ route('register') }}">
                                 <i class="bi bi-person-plus me-1"></i> S'inscrire
                             </a>
                         </li>
                     @else
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-light d-flex align-items-center" href="#" id="userMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span class="badge {{ Auth::user()->isAdmin() ? 'bg-danger' : 'bg-primary' }} me-2">
+                                <span class="badge {{ Auth::user()->isAdmin() ? 'bg-danger' : 'bg-ea-primary' }} me-2">
                                     {{ Auth::user()->role->label() }}
                                 </span>
                                 <span class="fw-medium text-truncate" style="max-width: 150px;">{{ Auth::user()->name }}</span>
@@ -141,10 +141,10 @@
     </main>
 
     <!-- Pied de page -->
-    <footer class="bg-white border-top py-3 text-center text-muted small mt-auto">
+    <footer class="bg-white border-top py-4 text-center text-muted small mt-auto">
         <div class="container">
-            <p class="mb-1">&copy; {{ date('Y') }} <strong>Educ'Academy</strong> &mdash; Terminale Mathématiques.</p>
-            <p class="text-secondary mb-0" style="font-size: 0.8rem;">Plateforme pédagogique de diffusion de cours et documents.</p>
+            <p class="mb-1">&copy; {{ date('Y') }} <strong class="text-dark">Educ'<span class="text-ea-accent">Academy</span></strong> &mdash; Terminale Mathématiques.</p>
+            <p class="text-secondary mb-0" style="font-size: 0.8rem;">Plateforme pédagogique moderne de diffusion de cours et documents.</p>
         </div>
     </footer>
 

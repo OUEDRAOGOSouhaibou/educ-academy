@@ -6,13 +6,13 @@
     <!-- Fil d'Ariane -->
     <nav aria-label="breadcrumb" class="mb-3">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('admin.months.index') }}" class="text-decoration-none">Mois scolaires</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{ $month->name }}</li>
+            <li class="breadcrumb-item"><a href="{{ route('admin.months.index') }}" class="text-decoration-none text-ea-primary">Mois scolaires</a></li>
+            <li class="breadcrumb-item active fw-semibold" aria-current="page">{{ $month->name }}</li>
         </ol>
     </nav>
 
     <!-- En-tête du mois -->
-    <div class="card card-ea border-0 bg-white p-4 shadow-sm mb-4">
+    <div class="card card-ea border-0 bg-white p-4 shadow-sm mb-4 card-ea-top-primary">
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
             <div>
                 <div class="d-flex align-items-center gap-2 mb-1">
@@ -26,7 +26,7 @@
                     Année {{ $month->schoolYear->label ?? '' }} &bull; {{ $month->videos->count() }} vidéo(s) &bull; {{ $month->documents->count() }} document(s) PDF
                 </p>
             </div>
-            <div class="d-flex gap-2">
+            <div class="d-flex flex-wrap gap-2">
                 <form method="POST" action="{{ route('admin.months.toggle-publish', $month) }}">
                     @csrf
                     <button type="submit" class="btn {{ $month->is_published ? 'btn-outline-secondary' : 'btn-outline-success' }} btn-sm">
@@ -34,7 +34,7 @@
                         {{ $month->is_published ? 'Masquer le mois' : 'Publier le mois' }}
                     </button>
                 </form>
-                <button type="button" class="btn btn-danger btn-sm shadow-sm" data-bs-toggle="modal" data-bs-target="#addVideoModal">
+                <button type="button" class="btn btn-outline-danger btn-sm shadow-sm" data-bs-toggle="modal" data-bs-target="#addVideoModal">
                     <i class="bi bi-camera-video me-1"></i> Ajouter une vidéo
                 </button>
                 <button type="button" class="btn btn-primary btn-sm shadow-sm" data-bs-toggle="modal" data-bs-target="#addDocumentModal">
@@ -58,7 +58,7 @@
             <div class="row g-3">
                 @forelse($month->videos as $video)
                     <div class="col-12 col-md-6 col-lg-4">
-                        <div class="card h-100 border shadow-none">
+                        <div class="card card-ea h-100 border shadow-none">
                             <!-- Façade vidéo lazy load -->
                             <div class="video-facade" data-youtube-id="{{ $video->youtube_id }}" data-title="{{ $video->title }}">
                                 <img src="{{ $video->thumbnail_url }}" alt="{{ $video->title }}" loading="lazy">
@@ -103,7 +103,7 @@
     <div class="card card-ea border-0 bg-white shadow-sm">
         <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
             <h5 class="fw-bold mb-0 text-dark">
-                <i class="bi bi-file-earmark-pdf-fill text-primary me-2"></i> Documents PDF ({{ $month->documents->count() }})
+                <i class="bi bi-file-earmark-pdf-fill text-ea-primary me-2"></i> Documents PDF ({{ $month->documents->count() }})
             </h5>
             <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addDocumentModal">
                 <i class="bi bi-upload me-1"></i> Téléverser un PDF
@@ -185,9 +185,9 @@
             <input type="hidden" name="month_id" value="{{ $month->id }}">
 
             <div class="modal-content border-0 shadow">
-                <div class="modal-header bg-danger text-white">
+                <div class="modal-header modal-header-ea">
                     <h5 class="modal-title fw-bold" id="addVideoModalLabel">
-                        <i class="bi bi-camera-video me-2"></i> Ajouter une vidéo de cours
+                        <i class="bi bi-camera-video me-2 text-danger"></i> Ajouter une vidéo de cours
                     </h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
                 </div>
@@ -218,7 +218,7 @@
                 </div>
                 <div class="modal-footer bg-light">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                    <button type="submit" class="btn btn-danger fw-bold">Enregistrer la vidéo</button>
+                    <button type="submit" class="btn btn-primary fw-bold">Enregistrer la vidéo</button>
                 </div>
             </div>
         </form>
@@ -233,9 +233,9 @@
             <input type="hidden" name="month_id" value="{{ $month->id }}">
 
             <div class="modal-content border-0 shadow">
-                <div class="modal-header bg-primary text-white">
+                <div class="modal-header modal-header-ea">
                     <h5 class="modal-title fw-bold" id="addDocumentModalLabel">
-                        <i class="bi bi-file-earmark-pdf me-2"></i> Téléverser un document PDF
+                        <i class="bi bi-file-earmark-pdf me-2 text-ea-accent"></i> Téléverser un document PDF
                     </h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
                 </div>
@@ -281,4 +281,3 @@
     </div>
 </div>
 @endsection
-

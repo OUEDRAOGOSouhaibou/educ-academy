@@ -6,9 +6,9 @@
     <!-- En-tête -->
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
         <div>
-            <span class="badge bg-danger mb-1">Espace Administration</span>
+            <span class="badge badge-ea-accent mb-1">Espace Administration</span>
             <h2 class="h3 fw-bold mb-1 text-dark">
-                <i class="bi bi-speedometer2 text-primary me-2"></i> Tableau de bord Professeur
+                <i class="bi bi-speedometer2 text-ea-primary me-2"></i> Tableau de bord Professeur
             </h2>
             <p class="text-muted small mb-0">Vue d'ensemble de la plateforme Educ'Academy &bull; Année {{ $schoolYear->label ?? 'non définie' }}</p>
         </div>
@@ -16,7 +16,7 @@
             <a href="{{ route('admin.months.index') }}" class="btn btn-primary btn-sm shadow-sm">
                 <i class="bi bi-calendar-plus me-1"></i> Gérer les Mois
             </a>
-            <a href="{{ route('admin.students.index') }}" class="btn btn-outline-dark btn-sm shadow-sm">
+            <a href="{{ route('admin.students.index') }}" class="btn btn-outline-secondary btn-sm shadow-sm">
                 <i class="bi bi-people me-1"></i> Gérer les Élèves
             </a>
         </div>
@@ -32,7 +32,7 @@
                     <small class="text-secondary">Validez leurs inscriptions pour leur permettre d'accéder aux cours.</small>
                 </div>
             </div>
-            <a href="{{ route('admin.students.index', ['status' => 'pending']) }}" class="btn btn-warning btn-sm fw-bold text-dark px-3">
+            <a href="{{ route('admin.students.index', ['status' => 'pending']) }}" class="btn btn-ea-accent btn-sm fw-bold px-3">
                 Valider les élèves
             </a>
         </div>
@@ -43,14 +43,14 @@
         <div class="col-6 col-lg-2">
             <div class="card card-ea border-0 bg-white p-3 shadow-sm text-center">
                 <div class="text-muted small mb-1">Total élèves</div>
-                <div class="h3 fw-bold text-dark mb-0">{{ $stats['total_students'] }}</div>
+                <div class="h3 fw-bold text-ea-primary mb-0">{{ $stats['total_students'] }}</div>
             </div>
         </div>
 
         <div class="col-6 col-lg-2">
             <a href="{{ route('admin.students.index', ['status' => 'pending']) }}" class="text-decoration-none">
-                <div class="card card-ea border-0 {{ $stats['pending_students'] > 0 ? 'bg-warning bg-opacity-10 border border-warning' : 'bg-white' }} p-3 shadow-sm text-center">
-                    <div class="text-warning fw-semibold small mb-1">En attente</div>
+                <div class="card card-ea border-0 {{ $stats['pending_students'] > 0 ? 'bg-ea-accent-light border border-ea-accent' : 'bg-white' }} p-3 shadow-sm text-center">
+                    <div class="text-ea-accent fw-bold small mb-1">En attente</div>
                     <div class="h3 fw-bold text-dark mb-0">{{ $stats['pending_students'] }}</div>
                 </div>
             </a>
@@ -73,14 +73,14 @@
         <div class="col-6 col-lg-2">
             <div class="card card-ea border-0 bg-white p-3 shadow-sm text-center">
                 <div class="text-muted small mb-1">Vidéos en ligne</div>
-                <div class="h3 fw-bold text-primary mb-0">{{ $stats['published_videos'] }}</div>
+                <div class="h3 fw-bold text-ea-primary mb-0">{{ $stats['published_videos'] }}</div>
             </div>
         </div>
 
         <div class="col-6 col-lg-2">
             <div class="card card-ea border-0 bg-white p-3 shadow-sm text-center">
                 <div class="text-muted small mb-1">Documents PDF</div>
-                <div class="h3 fw-bold text-primary mb-0">{{ $stats['total_documents'] }}</div>
+                <div class="h3 fw-bold text-ea-primary mb-0">{{ $stats['total_documents'] }}</div>
             </div>
         </div>
     </div>
@@ -89,10 +89,10 @@
     <div class="row g-4">
         <!-- Derniers élèves inscrits -->
         <div class="col-12 col-lg-6">
-            <div class="card card-ea border-0 bg-white shadow-sm h-100">
+            <div class="card card-ea border-0 bg-white shadow-sm h-100 card-ea-top-primary">
                 <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
                     <h5 class="fw-bold mb-0 text-dark">
-                        <i class="bi bi-person-lines-fill text-primary me-2"></i> Dernières inscriptions
+                        <i class="bi bi-person-lines-fill text-ea-primary me-2"></i> Dernières inscriptions
                     </h5>
                     <a href="{{ route('admin.students.index') }}" class="btn btn-outline-primary btn-sm">Voir tous</a>
                 </div>
@@ -145,10 +145,10 @@
 
         <!-- Mois et contenus scolaires -->
         <div class="col-12 col-lg-6">
-            <div class="card card-ea border-0 bg-white shadow-sm h-100">
+            <div class="card card-ea border-0 bg-white shadow-sm h-100 card-ea-top-primary">
                 <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
                     <h5 class="fw-bold mb-0 text-dark">
-                        <i class="bi bi-calendar-check text-primary me-2"></i> Mois scolaires ({{ $months->count() }})
+                        <i class="bi bi-calendar-check text-ea-primary me-2"></i> Mois scolaires ({{ $months->count() }})
                     </h5>
                     <a href="{{ route('admin.months.index') }}" class="btn btn-outline-primary btn-sm">Gérer</a>
                 </div>
@@ -171,7 +171,7 @@
                                     </td>
                                     <td class="small text-muted">
                                         <span class="me-2"><i class="bi bi-camera-video text-danger me-1"></i>{{ $month->videos_count }}</span>
-                                        <span><i class="bi bi-file-earmark-pdf text-primary me-1"></i>{{ $month->documents_count }}</span>
+                                        <span><i class="bi bi-file-earmark-pdf text-ea-primary me-1"></i>{{ $month->documents_count }}</span>
                                     </td>
                                     <td>
                                         <span class="badge {{ $month->is_published ? 'bg-success' : 'bg-secondary' }}">
@@ -198,4 +198,3 @@
 
 </div>
 @endsection
-

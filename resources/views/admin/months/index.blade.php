@@ -6,9 +6,9 @@
     <!-- En-tête -->
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
         <div>
-            <span class="badge bg-primary mb-1">Année scolaire : {{ $schoolYear->label ?? 'Non définie' }}</span>
+            <span class="badge badge-ea-primary mb-1">Année scolaire : {{ $schoolYear->label ?? 'Non définie' }}</span>
             <h2 class="h3 fw-bold mb-1 text-dark">
-                <i class="bi bi-calendar3 text-primary me-2"></i> Organisation des Mois & Contenus
+                <i class="bi bi-calendar3 text-ea-primary me-2"></i> Organisation des Mois & Contenus
             </h2>
             <p class="text-muted small mb-0">Les vidéos et PDF sont organisés par mois d'apprentissage (Octobre &rarr; Juin).</p>
         </div>
@@ -23,7 +23,7 @@
     <div class="row g-3">
         @forelse($months as $month)
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="card card-ea h-100 border-0 bg-white shadow-sm {{ $month->is_published ? 'border-start border-success border-4' : 'border-start border-secondary border-4' }}">
+                <div class="card card-ea card-ea-hover h-100 border-0 bg-white shadow-sm {{ $month->is_published ? 'border-start border-success border-4' : 'border-start border-secondary border-4' }}">
                     <div class="card-body d-flex flex-column p-4">
                         <div class="d-flex justify-content-between align-items-start mb-2">
                             <div>
@@ -45,7 +45,7 @@
                                 <span class="text-muted small d-block">Vidéos</span>
                             </div>
                             <div class="flex-fill p-2 bg-light rounded text-center">
-                                <i class="bi bi-file-earmark-pdf-fill text-primary me-1"></i>
+                                <i class="bi bi-file-earmark-pdf-fill text-ea-primary me-1"></i>
                                 <span class="fw-bold">{{ $month->documents_count }}</span>
                                 <span class="text-muted small d-block">PDF</span>
                             </div>
@@ -104,9 +104,9 @@
                 <input type="hidden" name="school_year_id" value="{{ $schoolYear->id }}">
             @endif
             <div class="modal-content border-0 shadow">
-                <div class="modal-header bg-primary text-white">
+                <div class="modal-header modal-header-ea">
                     <h5 class="modal-title fw-bold" id="createMonthModalLabel">
-                        <i class="bi bi-calendar-plus me-2"></i> Ajouter un mois scolaire
+                        <i class="bi bi-calendar-plus me-2 text-ea-accent"></i> Ajouter un mois scolaire
                     </h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
                 </div>
@@ -141,4 +141,3 @@
     </div>
 </div>
 @endsection
-

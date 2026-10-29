@@ -7,7 +7,7 @@
     <nav aria-label="breadcrumb" class="mb-3">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{{ route('student.dashboard') }}" class="text-decoration-none">
+                <a href="{{ route('student.dashboard') }}" class="text-decoration-none text-ea-primary fw-medium">
                     <i class="bi bi-arrow-left me-1"></i> Mes cours
                 </a>
             </li>
@@ -16,10 +16,10 @@
     </nav>
 
     <!-- En-tête du mois -->
-    <div class="card card-ea border-0 bg-white p-4 shadow-sm mb-4">
+    <div class="card card-ea border-0 bg-white p-4 shadow-sm mb-4 card-ea-top-primary">
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
             <div>
-                <span class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25 mb-1">
+                <span class="badge badge-ea-primary mb-1">
                     {{ $month->schoolYear->label ?? '' }} &bull; Position #{{ $month->position }}
                 </span>
                 <h2 class="h3 fw-bold mb-1 text-dark">Mathématiques &mdash; {{ $month->name }}</h2>
@@ -46,7 +46,7 @@
         <div class="row g-3">
             @forelse($videos as $video)
                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card card-ea border-0 bg-white shadow-sm h-100 overflow-hidden">
+                    <div class="card card-ea border-0 bg-white shadow-sm h-100 overflow-hidden card-ea-hover">
                         <!-- Lecteur Façade YouTube (économiseur de data mobile : chargement au clic) -->
                         <div class="video-facade" data-youtube-id="{{ $video->youtube_id }}" data-title="{{ $video->title }}">
                             <img src="{{ $video->thumbnail_url }}" alt="{{ $video->title }}" loading="lazy">
@@ -61,7 +61,7 @@
                                 <p class="text-muted small mb-2 flex-grow-1">{{ $video->description }}</p>
                             @endif
                             <div class="mt-auto pt-2 text-muted small d-flex align-items-center">
-                                <i class="bi bi-info-circle me-1"></i>
+                                <i class="bi bi-info-circle me-1 text-ea-primary"></i>
                                 <span>Cliquez pour lancer la vidéo en streaming</span>
                             </div>
                         </div>
@@ -82,25 +82,25 @@
     <div>
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3 gap-2">
             <h4 class="fw-bold text-dark mb-0">
-                <i class="bi bi-file-earmark-pdf-fill text-primary me-2"></i> Fiches & Exercices PDF ({{ $documents->count() }})
+                <i class="bi bi-file-earmark-pdf-fill text-ea-primary me-2"></i> Fiches & Exercices PDF ({{ $documents->count() }})
             </h4>
         </div>
 
         <!-- Filtres de type de documents -->
         <div class="d-flex flex-wrap gap-1 mb-3">
-            <a href="{{ route('student.months.show', $month) }}" class="btn btn-sm {{ empty($currentType) ? 'btn-dark' : 'btn-outline-secondary' }}">
+            <a href="{{ route('student.months.show', $month) }}" class="btn btn-sm {{ empty($currentType) ? 'btn-primary' : 'btn-outline-secondary' }}">
                 Tous ({{ $typeCounts['all'] }})
             </a>
             <a href="{{ route('student.months.show', [$month, 'type' => 'cours']) }}" class="btn btn-sm {{ $currentType === 'cours' ? 'btn-primary' : 'btn-outline-primary' }}">
                 <i class="bi bi-journal-text me-1"></i> Cours ({{ $typeCounts['cours'] }})
             </a>
-            <a href="{{ route('student.months.show', [$month, 'type' => 'serie']) }}" class="btn btn-sm {{ $currentType === 'serie' ? 'btn-info text-dark fw-bold' : 'btn-outline-info text-dark' }}">
+            <a href="{{ route('student.months.show', [$month, 'type' => 'serie']) }}" class="btn btn-sm {{ $currentType === 'serie' ? 'btn-info text-dark fw-bold' : 'btn-outline-secondary' }}">
                 <i class="bi bi-list-check me-1"></i> Séries ({{ $typeCounts['serie'] }})
             </a>
-            <a href="{{ route('student.months.show', [$month, 'type' => 'devoir']) }}" class="btn btn-sm {{ $currentType === 'devoir' ? 'btn-warning text-dark fw-bold' : 'btn-outline-warning text-dark' }}">
+            <a href="{{ route('student.months.show', [$month, 'type' => 'devoir']) }}" class="btn btn-sm {{ $currentType === 'devoir' ? 'btn-ea-accent' : 'btn-outline-secondary' }}">
                 <i class="bi bi-pencil-square me-1"></i> Devoirs ({{ $typeCounts['devoir'] }})
             </a>
-            <a href="{{ route('student.months.show', [$month, 'type' => 'corrige']) }}" class="btn btn-sm {{ $currentType === 'corrige' ? 'btn-success fw-bold' : 'btn-outline-success' }}">
+            <a href="{{ route('student.months.show', [$month, 'type' => 'corrige']) }}" class="btn btn-sm {{ $currentType === 'corrige' ? 'btn-success fw-bold' : 'btn-outline-secondary' }}">
                 <i class="bi bi-check-circle me-1"></i> Corrigés ({{ $typeCounts['corrige'] }})
             </a>
         </div>
@@ -109,10 +109,10 @@
         <div class="row g-3">
             @forelse($documents as $doc)
                 <div class="col-12 col-md-6">
-                    <div class="card card-ea border-0 bg-white shadow-sm h-100 p-3">
+                    <div class="card card-ea card-ea-hover border-0 bg-white shadow-sm h-100 p-3">
                         <div class="d-flex align-items-start gap-3">
-                            <div class="p-3 bg-light rounded-3 text-center flex-shrink-0" style="width: 55px; height: 55px;">
-                                <i class="bi {{ $doc->type->icon() }} fs-4 text-primary"></i>
+                            <div class="p-3 bg-ea-primary-light rounded-3 text-center flex-shrink-0" style="width: 55px; height: 55px;">
+                                <i class="bi {{ $doc->type->icon() }} fs-4 text-ea-primary"></i>
                             </div>
 
                             <div class="flex-grow-1">
@@ -155,4 +155,3 @@
 
 </div>
 @endsection
-

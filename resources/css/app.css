@@ -7,11 +7,21 @@
     --ea-primary: #095b86;        /* Bleu Pétrole / Océan profond */
     --ea-primary-hover: #074768;
     --ea-primary-light: #e8f3f8;
+    --ea-primary-dark: #052638;
     --ea-accent: #dd520e;         /* Orange Mandarine chaud */
     --ea-accent-hover: #c24407;
     --ea-accent-light: #fef4ee;
     --ea-bg-soft: #f4f8fa;
     --ea-card-border: #dbe7ed;
+
+    /* Surcharge directe des variables Bootstrap 5 */
+    --bs-primary: #095b86;
+    --bs-primary-rgb: 9, 91, 134;
+    --bs-primary-border-subtle: #a0c9de;
+    --bs-primary-bg-subtle: #e8f3f8;
+    --bs-link-color: #095b86;
+    --bs-link-hover-color: #074768;
+    --bs-focus-ring-color: rgba(9, 91, 134, 0.22);
 }
 
 body {
@@ -27,48 +37,195 @@ main {
     flex: 1 0 auto;
 }
 
-/* Utilitaires couleurs de marque */
+/* --- Barre de navigation de marque (Navbar) --- */
+.navbar-ea {
+    background: linear-gradient(135deg, #052638 0%, #095b86 100%);
+    border-bottom: 3px solid var(--ea-accent);
+}
+
+.navbar-ea .navbar-brand {
+    font-size: 1.25rem;
+    letter-spacing: -0.2px;
+}
+
+.navbar-ea .nav-link {
+    color: rgba(255, 255, 255, 0.88);
+    font-weight: 500;
+    transition: color 0.15s ease;
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+}
+
+.navbar-ea .nav-link:hover,
+.navbar-ea .nav-link:focus {
+    color: #ffffff;
+}
+
+.navbar-ea .nav-link.active {
+    color: #ffffff;
+    font-weight: 700;
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 0.5rem;
+}
+
+.brand-logo-img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--ea-accent);
+    background-color: #ffffff;
+}
+
+/* --- Utilitaires de marque --- */
 .text-ea-primary { color: var(--ea-primary) !important; }
 .text-ea-accent { color: var(--ea-accent) !important; }
-.bg-ea-primary { background-color: var(--ea-primary) !important; color: #fff; }
-.bg-ea-accent { background-color: var(--ea-accent) !important; color: #fff; }
+.text-ea-dark { color: var(--ea-primary-dark) !important; }
 
-/* Cartes et conteneurs */
+.bg-ea-primary { background-color: var(--ea-primary) !important; color: #ffffff !important; }
+.bg-ea-accent { background-color: var(--ea-accent) !important; color: #ffffff !important; }
+.bg-ea-primary-light { background-color: var(--ea-primary-light) !important; color: var(--ea-primary) !important; }
+.bg-ea-accent-light { background-color: var(--ea-accent-light) !important; color: var(--ea-accent) !important; }
+
+.border-ea-primary { border-color: var(--ea-primary) !important; }
+.border-ea-accent { border-color: var(--ea-accent) !important; }
+
+/* --- Badges de marque --- */
+.badge-ea-primary {
+    background-color: var(--ea-primary-light);
+    color: var(--ea-primary);
+    border: 1px solid rgba(9, 91, 134, 0.25);
+    font-weight: 600;
+}
+
+.badge-ea-accent {
+    background-color: var(--ea-accent-light);
+    color: var(--ea-accent);
+    border: 1px solid rgba(221, 82, 14, 0.3);
+    font-weight: 600;
+}
+
+/* --- Cartes & Conteneurs --- */
 .card-ea {
     border: 1px solid var(--ea-card-border);
-    border-radius: 0.85rem;
-    box-shadow: 0 2px 5px rgba(9, 91, 134, 0.05);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    border-radius: 0.95rem;
+    box-shadow: 0 2px 8px rgba(9, 91, 134, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    background-color: #ffffff;
 }
 
 .card-ea-hover:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px -1px rgba(9, 91, 134, 0.12), 0 3px 6px -2px rgba(9, 91, 134, 0.08);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px -3px rgba(9, 91, 134, 0.12), 0 4px 6px -2px rgba(9, 91, 134, 0.06);
+    border-color: #bcd4e0;
 }
 
-/* Boutons personnalisés */
-.btn-ea-primary {
+/* Bandeau décoratif supérieur sur carte */
+.card-ea-top-accent {
+    border-top: 4px solid var(--ea-accent);
+}
+
+.card-ea-top-primary {
+    border-top: 4px solid var(--ea-primary);
+}
+
+/* --- Boutons personnalisés --- */
+.btn-primary {
+    background: linear-gradient(135deg, var(--ea-primary) 0%, #0d7db3 100%);
+    border-color: var(--ea-primary);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 3px 8px rgba(9, 91, 134, 0.2);
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background: linear-gradient(135deg, var(--ea-primary-hover) 0%, var(--ea-primary) 100%) !important;
+    border-color: var(--ea-primary-hover) !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 14px rgba(9, 91, 134, 0.3) !important;
+    transform: translateY(-1px);
+}
+
+.btn-outline-primary {
+    color: var(--ea-primary);
+    border-color: var(--ea-primary);
+    font-weight: 600;
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active {
     background-color: var(--ea-primary);
     border-color: var(--ea-primary);
     color: #ffffff;
-}
-
-.btn-ea-primary:hover, .btn-ea-primary:focus {
-    background-color: var(--ea-primary-hover);
-    border-color: var(--ea-primary-hover);
-    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(9, 91, 134, 0.2);
 }
 
 .btn-ea-accent {
+    background: linear-gradient(135deg, var(--ea-accent) 0%, #f06724 100%);
+    border-color: var(--ea-accent);
+    color: #ffffff !important;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(221, 82, 14, 0.28);
+    transition: all 0.2s ease;
+}
+
+.btn-ea-accent:hover, .btn-ea-accent:focus, .btn-ea-accent:active {
+    background: linear-gradient(135deg, var(--ea-accent-hover) 0%, var(--ea-accent) 100%) !important;
+    border-color: var(--ea-accent-hover) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(221, 82, 14, 0.38) !important;
+}
+
+.btn-outline-ea-accent {
+    color: var(--ea-accent);
+    border: 2px solid var(--ea-accent);
+    font-weight: 700;
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-ea-accent:hover, .btn-outline-ea-accent:focus {
     background-color: var(--ea-accent);
     border-color: var(--ea-accent);
     color: #ffffff;
+    box-shadow: 0 4px 12px rgba(221, 82, 14, 0.28);
 }
 
-.btn-ea-accent:hover, .btn-ea-accent:focus {
-    background-color: var(--ea-accent-hover);
-    border-color: var(--ea-accent-hover);
+/* Champs de formulaires */
+.form-control:focus, .form-select:focus {
+    border-color: var(--ea-primary);
+    box-shadow: 0 0 0 0.25rem rgba(9, 91, 134, 0.18);
+}
+
+/* Modales avec en-tête de marque */
+.modal-header-ea {
+    background: linear-gradient(135deg, #052638 0%, #095b86 100%);
     color: #ffffff;
+    border-bottom: 2px solid var(--ea-accent);
+}
+
+/* Bannière d'appel à l'action finale (CTA) */
+.ea-cta-banner {
+    background: linear-gradient(135deg, #052638 0%, #095b86 65%, #0d7db3 100%);
+    border-radius: 1.25rem;
+    box-shadow: 0 16px 36px -8px rgba(9, 91, 134, 0.35);
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+.ea-cta-banner::after {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(221, 82, 14, 0.28) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 /* --- Styles exclusifs pour les pages d'Authentification (Connexion / Inscription) --- */

@@ -4,11 +4,11 @@
 <div class="container">
 
     <!-- En-tête de bienvenue de l'élève -->
-    <div class="card card-ea border-0 bg-white p-4 shadow-sm mb-4">
+    <div class="card card-ea border-0 bg-white p-4 shadow-sm mb-4 card-ea-top-accent">
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
             <div>
-                <span class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25 mb-2">
-                    <i class="bi bi-mortarboard-fill me-1 text-warning"></i> Terminale &bull; Mathématiques
+                <span class="badge badge-ea-primary mb-2">
+                    <i class="bi bi-mortarboard-fill me-1 text-ea-accent"></i> Terminale &bull; Mathématiques
                 </span>
                 <h2 class="h3 fw-bold mb-1 text-dark">Bienvenue, {{ Auth::user()->name }}</h2>
                 <p class="text-muted small mb-0">
@@ -26,7 +26,7 @@
     <!-- Titre de la section des mois -->
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h4 class="fw-bold text-dark mb-0">
-            <i class="bi bi-calendar3 text-primary me-2"></i> Mois au programme
+            <i class="bi bi-calendar3 text-ea-primary me-2"></i> Mois au programme
         </h4>
         <span class="text-muted small">
             {{ $months->count() }} mois disponible(s)
@@ -42,7 +42,7 @@
                         <div class="card-body p-4 d-flex flex-column">
                             <div class="d-flex justify-content-between align-items-start mb-2">
                                 <span class="badge bg-light text-secondary border small">Position #{{ $month->position }}</span>
-                                <span class="badge bg-primary bg-opacity-10 text-primary">
+                                <span class="badge badge-ea-primary">
                                     <i class="bi bi-folder2 me-1"></i> Disponible
                                 </span>
                             </div>
@@ -58,13 +58,13 @@
                                     <span class="text-muted small d-block">Vidéo(s)</span>
                                 </div>
                                 <div class="flex-fill p-2 bg-light rounded text-center">
-                                    <i class="bi bi-file-earmark-pdf-fill text-primary me-1"></i>
+                                    <i class="bi bi-file-earmark-pdf-fill text-ea-primary me-1"></i>
                                     <span class="fw-bold text-dark">{{ $month->documents_count }}</span>
                                     <span class="text-muted small d-block">PDF</span>
                                 </div>
                             </div>
 
-                            <div class="mt-3 pt-3 border-top text-primary fw-semibold small d-flex justify-content-between align-items-center">
+                            <div class="mt-3 pt-3 border-top text-ea-primary fw-bold small d-flex justify-content-between align-items-center">
                                 <span>Ouvrir les cours du mois</span>
                                 <i class="bi bi-arrow-right"></i>
                             </div>
@@ -75,7 +75,7 @@
         @empty
             <div class="col-12">
                 <div class="card card-ea border-0 bg-white p-5 text-center shadow-sm">
-                    <i class="bi bi-hourglass-split fs-1 text-warning mb-2"></i>
+                    <i class="bi bi-hourglass-split fs-1 text-ea-accent mb-2"></i>
                     <h5 class="fw-bold text-dark">Aucun mois publié pour le moment</h5>
                     <p class="text-muted small mb-0">
                         Votre professeur n'a pas encore publié les premiers cours de l'année. Revenez très bientôt !
