@@ -130,11 +130,11 @@
                                     <p class="text-muted small mb-2">{{ $doc->description }}</p>
                                 @endif
 
-                                <div class="d-flex gap-2 mt-2 pt-2 border-top">
-                                    <a href="{{ route('documents.view', $doc) }}" target="_blank" class="btn btn-outline-primary btn-sm flex-fill">
+                                <div class="d-flex flex-wrap gap-2 mt-2 pt-2 border-top">
+                                    <a href="{{ route('documents.view', $doc) }}" target="_blank" class="btn btn-outline-primary btn-sm flex-fill text-nowrap">
                                         <i class="bi bi-eye me-1"></i> Consulter
                                     </a>
-                                    <a href="{{ route('documents.download', $doc) }}" class="btn btn-primary btn-sm flex-fill">
+                                    <a href="{{ route('documents.download', $doc) }}" class="btn btn-primary btn-sm flex-fill text-nowrap">
                                         <i class="bi bi-download me-1"></i> Télécharger
                                     </a>
                                 </div>
