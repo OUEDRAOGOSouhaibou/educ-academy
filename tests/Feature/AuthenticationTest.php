@@ -172,5 +172,12 @@ class AuthenticationTest extends TestCase
         $response = $this->get('/admin/eleves');
         $response->assertForbidden();
     }
+
+    public function test_login_page_displays_official_slogan(): void
+    {
+        $response = $this->get('/connexion');
+        $response->assertOk();
+        $response->assertSee('Construis ton avenir et Prépare-toi à le Vivre');
+    }
 }
 

@@ -6,9 +6,20 @@
     <!-- Bannière Hero -->
     <div class="row align-items-center py-4 py-lg-5">
         <div class="col-12 col-lg-7 text-center text-lg-start mb-4 mb-lg-0">
-            <span class="badge badge-ea-primary px-3 py-2 rounded-pill fw-bold mb-3 shadow-xs">
-                <i class="bi bi-mortarboard-fill me-1 text-ea-accent"></i> Terminale &bull; Mathématiques
-            </span>
+            <div class="d-flex flex-wrap align-items-center gap-2 mb-3 justify-content-center justify-content-lg-start">
+                <span class="badge badge-ea-primary px-3 py-2 rounded-pill fw-bold shadow-xs">
+                    <i class="bi bi-mortarboard-fill me-1 text-ea-accent"></i> Terminale &bull; Mathématiques
+                </span>
+
+                <!-- Slogan officiel avec affichage gestuel -->
+                <div class="ea-slogan-banner px-3 py-2 rounded-pill d-inline-flex align-items-center shadow-xs">
+                    <span class="slogan-hand-gesture me-2" aria-hidden="true">✍️</span>
+                    <span class="ea-slogan-text fst-italic fw-bold text-ea-primary small">
+                        &laquo;&nbsp;<span class="ea-slogan-typewriter" data-slogan="Construis ton avenir et Prépare-toi à le Vivre">Construis ton avenir et Prépare-toi à le Vivre</span>&nbsp;&raquo;
+                    </span>
+                    <span class="ea-slogan-cursor">|</span>
+                </div>
+            </div>
 
             <h1 class="display-5 fw-bold text-dark mb-3">
                 Révisez et réussissez vos <span class="text-ea-primary">Mathématiques</span>

@@ -427,3 +427,94 @@ main {
         -webkit-overflow-scrolling: touch;
     }
 }
+
+/* --- Slogan Animé & Gestuel Educ'Academy --- */
+.ea-slogan-banner {
+    background: linear-gradient(135deg, rgba(9, 91, 134, 0.07) 0%, rgba(221, 82, 14, 0.08) 100%);
+    border: 1px solid rgba(9, 91, 134, 0.22);
+    box-shadow: 0 4px 14px rgba(9, 91, 134, 0.06);
+    backdrop-filter: blur(6px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ea-slogan-banner:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(9, 91, 134, 0.12);
+}
+
+.ea-slogan-login-box {
+    background: linear-gradient(135deg, #f0f7fb 0%, #fff8f5 100%);
+    border: 1px dashed rgba(9, 91, 134, 0.28);
+    border-radius: 0.85rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.ea-slogan-text {
+    letter-spacing: 0.2px;
+}
+
+.ea-slogan-typewriter {
+    position: relative;
+    display: inline;
+}
+
+/* Animation de la main gestuelle d'écriture ✍️ */
+@keyframes writingGesture {
+    0%, 100% {
+        transform: rotate(0deg) translateY(0) scale(1);
+    }
+    20% {
+        transform: rotate(-14deg) translateY(-2px) scale(1.1);
+    }
+    45% {
+        transform: rotate(10deg) translateY(1px) scale(1.05);
+    }
+    70% {
+        transform: rotate(-8deg) translateY(-1px) scale(1.1);
+    }
+}
+
+.slogan-hand-gesture {
+    display: inline-block;
+    animation: writingGesture 2s ease-in-out infinite;
+    transform-origin: 75% 75%;
+    cursor: default;
+    user-select: none;
+}
+
+/* Curseur d'écriture clignotant */
+@keyframes blinkSloganCursor {
+    0%, 49% {
+        opacity: 1;
+    }
+    50%, 100% {
+        opacity: 0;
+    }
+}
+
+.ea-slogan-cursor {
+    color: var(--ea-accent);
+    font-weight: 900;
+    margin-left: 2px;
+    animation: blinkSloganCursor 0.75s infinite;
+    user-select: none;
+}
+
+.ea-slogan-cursor.cursor-idle {
+    animation: blinkSloganCursor 1.25s infinite;
+}
+
+/* Trait de soulignement gestuel qui s'anime à la fin de l'écriture */
+.ea-slogan-underline {
+    height: 3px;
+    width: 0;
+    background: linear-gradient(90deg, var(--ea-primary) 0%, var(--ea-accent) 100%);
+    border-radius: 3px;
+    transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slogan-box-active .ea-slogan-underline {
+    width: 150px;
+}
+

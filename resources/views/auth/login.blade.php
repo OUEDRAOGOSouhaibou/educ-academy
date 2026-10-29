@@ -1,9 +1,21 @@
 @extends('layouts.auth')
 
 @section('content')
-    <div class="text-center mb-4">
+    <div class="text-center mb-3">
         <h4 class="fw-bold mb-1 text-dark">Espace de Connexion</h4>
         <p class="text-muted small mb-0">Consultez vos cours en vidéo et vos séries d'exercices</p>
+    </div>
+
+    <!-- Slogan officiel avec affichage gestuel -->
+    <div class="ea-slogan-login-box mb-4 p-3 text-center shadow-xs">
+        <div class="d-inline-flex align-items-center justify-content-center flex-wrap">
+            <span class="slogan-hand-gesture me-2" aria-hidden="true">✍️</span>
+            <span class="fst-italic fw-bold text-ea-primary small">
+                &laquo;&nbsp;<span class="ea-slogan-typewriter" data-slogan="Construis ton avenir et Prépare-toi à le Vivre">Construis ton avenir et Prépare-toi à le Vivre</span>&nbsp;&raquo;
+            </span>
+            <span class="ea-slogan-cursor">|</span>
+        </div>
+        <div class="ea-slogan-underline mx-auto mt-2"></div>
     </div>
 
     <form method="POST" action="{{ route('login') }}" novalidate>

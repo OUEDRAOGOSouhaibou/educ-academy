@@ -80,6 +80,7 @@ class StudentExperienceTest extends TestCase
         $response->assertSee('Mathématiques');
         $response->assertSee('Se connecter');
         $response->assertSee('inscrire');
+        $response->assertSee('Construis ton avenir et Prépare-toi à le Vivre');
     }
 
     public function test_student_dashboard_displays_published_months(): void
