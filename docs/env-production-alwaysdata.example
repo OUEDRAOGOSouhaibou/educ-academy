@@ -1,0 +1,32 @@
+# =====================================================================
+# Configuration .env pour Déploiement Alwaysdata — Educ'Academy
+# =====================================================================
+
+APP_NAME="Educ'Academy"
+APP_ENV=production
+APP_KEY= # Généré automatiquement avec : php artisan key:generate
+APP_DEBUG=false
+APP_URL=https://VOTRE_COMPTE.alwaysdata.net
+
+APP_LOCALE=fr
+APP_FALLBACK_LOCALE=fr
+APP_TIMEZONE=Africa/Ouagadougou
+
+# Connexion Base de Données MySQL Alwaysdata
+DB_CONNECTION=mysql
+DB_HOST=mysql-VOTRE_COMPTE.alwaysdata.net
+DB_PORT=3306
+DB_DATABASE=VOTRE_COMPTE_educ_academy
+DB_USERNAME=VOTRE_COMPTE
+DB_PASSWORD=VOTRE_MOT_DE_PASSE_MYSQL
+
+# Sessions stockées en base de données
+SESSION_DRIVER=database
+SESSION_LIFETIME=120
+SESSION_ENCRYPT=false
+SESSION_SECURE_COOKIE=true
+SESSION_SAME_SITE=lax
+
+# Système de fichiers & Téléversements
+FILESYSTEM_DISK=local
+PDF_MAX_SIZE_MB=20
