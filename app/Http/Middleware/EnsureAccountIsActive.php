@@ -29,7 +29,10 @@ class EnsureAccountIsActive
             $request->session()->regenerateToken();
 
             return redirect()->route('login')->withErrors([
-                'phone' => 'Votre compte a été suspendu par l\'administrateur. Veuillez contacter votre professeur.',
+                'phone' => '💰 Abonnement mensuel : 3 000 F CFA seulement !   Effectuez votre paiement au 67 05 81 05 ,  Envoyez ensuite une capture d\'écran du dépôt au même numéro  et  Votre abonnement sera pris en compte après validation.
+
+
+                    Educ\'Academy, Construis ton avenir et Prépare toi à le vivre ! ',
             ]);
         }
 
