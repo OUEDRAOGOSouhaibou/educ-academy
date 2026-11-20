@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\MonthRequest;
 use App\Models\Month;
 use App\Models\SchoolYear;
+use App\Services\WebPushService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -68,12 +69,20 @@ class MonthController extends Controller
     }
 
     /**
-     * Bascule le statut de publication d'un mois (publié / masqué).
+     * Bascule le statut de publication d'un mois (publié / masqué) et notifie les élèves.
      */
-    public function togglePublish(Month $month): RedirectResponse
+    public function togglePublish(Month $month, WebPushService $webPushService): RedirectResponse
     {
         $month->is_published = ! $month->is_published;
         $month->save();
+
+        if ($month->is_published) {
+            $webPushService->sendToAllApprovedStudents(
+                "📚 Nouveau mois disponible !",
+                "Le programme de Mathématiques pour {$month->name} vient d'être publié avec ses vidéos et documents PDF.",
+                route('student.months.show', $month)
+            );
+        }
 
         $action = $month->is_published ? 'publié (accessible aux élèves)' : 'masqué (inaccessible aux élèves)';
 

@@ -6,6 +6,7 @@ use App\Enums\UserRole;
 use App\Enums\UserStatus;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Services\WebPushService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -54,15 +55,45 @@ class StudentController extends Controller
     }
 
     /**
-     * Valide l'inscription d'un élève.
+     * Valide l'inscription d'un élève et lui envoie une notification push.
      */
-    public function approve(User $student): RedirectResponse
+    public function approve(User $student, WebPushService $webPushService): RedirectResponse
     {
         $student->status = UserStatus::Approved;
         $student->approved_at = now();
         $student->save();
 
+        // Envoi automatique de notification push sur le smartphone de l'élève
+        $webPushService->sendToUser(
+            $student,
+            "🎉 Compte activé !",
+            "Bonjour {$student->name}, votre inscription a été validée par votre professeur. Vous avez maintenant un accès complet à tous vos cours de Mathématiques.",
+            route('student.dashboard')
+        );
+
         return back()->with('success', "Le compte de {$student->name} a été autorisé avec succès.");
+    }
+
+    /**
+     * Diffuse un message push à l'ensemble des élèves autorisés.
+     */
+    public function broadcastPush(Request $request, WebPushService $webPushService): RedirectResponse
+    {
+        $validated = $request->validate([
+            'title' => ['required', 'string', 'max:100'],
+            'message' => ['required', 'string', 'max:255'],
+        ], [
+            'title.required' => 'Le titre de la notification est obligatoire.',
+            'message.required' => 'Le message de la notification est obligatoire.',
+        ]);
+
+        $sentCount = $webPushService->sendToAllApprovedStudents(
+            $validated['title'],
+            $validated['message'],
+            route('student.dashboard')
+        );
+
+        return back()->with('success', "Notification push envoyée vers {$sentCount} terminal(aux) d'élèves !");
     }
 
     /**

@@ -1,8 +1,12 @@
 import './bootstrap';
 import 'bootstrap';
+import { initPWA } from './pwa';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initialisation du lazy-loader vidéo YouTube (économie de data mobile)
+    // 1. Initialisation PWA & Notifications Push
+    initPWA();
+
+    // 2. Initialisation du lazy-loader vidéo YouTube (économie de data mobile)
     document.querySelectorAll('.video-facade').forEach(facade => {
         facade.addEventListener('click', function () {
             const youtubeId = this.dataset.youtubeId;

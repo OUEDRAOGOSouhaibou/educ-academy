@@ -7,6 +7,16 @@
 
     <title>{{ config('app.name', "Educ'Academy") }} - Authentification</title>
 
+    <!-- PWA & Métadonnées Mobiles -->
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
+    <meta name="theme-color" content="#095B86">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Educ'Academy">
+    <link rel="apple-touch-icon" href="{{ asset('images/icons/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('images/icons/icon-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="64x64" href="{{ asset('favicon.png') }}">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="auth-page d-flex flex-column min-vh-100">
@@ -65,6 +75,25 @@
                     <p class="mb-0">&copy; {{ date('Y') }} Educ'Academy &bull; Plateforme d'apprentissage</p>
                 </div>
 
+            </div>
+        </div>
+    </div>
+
+    <!-- Bannière d'installation PWA Mobile -->
+    <div id="pwa-install-banner" class="pwa-banner d-none shadow-lg py-2" role="alert">
+        <div class="container d-flex align-items-center justify-content-between gap-2">
+            <div class="d-flex align-items-center gap-2">
+                <img src="{{ asset('images/icons/icon-192x192.png') }}" alt="Logo Educ'Academy" class="pwa-banner-icon flex-shrink-0">
+                <div>
+                    <div class="fw-bold text-dark small mb-0">Installer l'application Educ'Academy</div>
+                    <div class="text-muted smaller">Accès direct depuis votre écran d'accueil sans Play Store</div>
+                </div>
+            </div>
+            <div class="d-flex align-items-center gap-2 flex-shrink-0">
+                <button type="button" class="btn btn-ea-accent btn-sm fw-bold px-3 btn-install-pwa">
+                    <i class="bi bi-download me-1"></i> Installer
+                </button>
+                <button type="button" class="btn-close btn-sm" id="btn-dismiss-pwa-banner" aria-label="Fermer"></button>
             </div>
         </div>
     </div>

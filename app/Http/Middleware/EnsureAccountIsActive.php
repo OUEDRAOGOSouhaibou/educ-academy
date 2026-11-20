@@ -38,7 +38,7 @@ class EnsureAccountIsActive
 
         // 2. Compte en attente de validation (réservé aux élèves)
         if ($user->isPending()) {
-            if (! $request->routeIs('student.pending', 'logout')) {
+            if (! $request->routeIs('student.pending', 'logout', 'push.*')) {
                 return redirect()->route('student.pending');
             }
             return $next($request);

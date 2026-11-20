@@ -35,4 +35,12 @@ return [
         ],
     ],
 
+    'webpush' => [
+        'vapid' => [
+            'subject' => env('VAPID_SUBJECT', 'mailto:admin@educ-academy.alwaysdata.net'),
+            'public_key' => env('VAPID_PUBLIC_KEY', 'BG-qiUaedG7YBKn3npY3WAlkcEYvhjug9uOvWK_p3HzaooAdw67mMlg8MXCj6b8PE8FcSf91Xqjj9iz8XRkMhR4'),
+            'private_key' => env('VAPID_PRIVATE_KEY', 'Uw_iZEctq8zBzz49uSROCUf7U3ZGKMWln_FRhkvnY8c'),
+        ],
+    ],
+
 ];

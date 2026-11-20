@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PasswordChangeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DocumentDownloadController;
+use App\Http\Controllers\PushSubscriptionController;
 use App\Http\Controllers\Student\DashboardController as StudentDashboardController;
 use App\Http\Controllers\Student\PendingNoticeController;
 use Illuminate\Support\Facades\Route;
@@ -73,6 +74,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     // 1. Gestion des élèves
     Route::prefix('eleves')->name('students.')->group(function () {
         Route::get('/', [StudentController::class, 'index'])->name('index');
+        Route::post('/diffusion-push', [StudentController::class, 'broadcastPush'])->name('broadcast-push');
         Route::post('/{student}/autoriser', [StudentController::class, 'approve'])->name('approve');
         Route::post('/{student}/bloquer', [StudentController::class, 'block'])->name('block');
         Route::post('/{student}/debloquer', [StudentController::class, 'unblock'])->name('unblock');
@@ -104,3 +106,34 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
         Route::delete('/{document}', [AdminDocumentController::class, 'destroy'])->name('destroy');
     });
 });
+
+/*
+|--------------------------------------------------------------------------
+| Souscription & Gestion PWA Web Push
+|--------------------------------------------------------------------------
+*/
+Route::get('/manifest.json', function () {
+    return response(file_get_contents(public_path('manifest.json')), 200, [
+        'Content-Type' => 'application/manifest+json; charset=utf-8',
+    ]);
+})->name('pwa.manifest');
+
+Route::get('/sw.js', function () {
+    return response(file_get_contents(public_path('sw.js')), 200, [
+        'Content-Type' => 'application/javascript; charset=utf-8',
+        'Service-Worker-Allowed' => '/',
+    ]);
+})->name('pwa.sw');
+
+Route::get('/offline.html', function () {
+    return response(file_get_contents(public_path('offline.html')), 200, [
+        'Content-Type' => 'text/html; charset=utf-8',
+    ]);
+})->name('pwa.offline');
+
+Route::get('/push/public-key', [PushSubscriptionController::class, 'publicKey'])->name('push.public-key');
+Route::post('/push/subscribe', [PushSubscriptionController::class, 'subscribe'])->name('push.subscribe');
+Route::post('/push/unsubscribe', [PushSubscriptionController::class, 'unsubscribe'])->name('push.unsubscribe');
+Route::post('/push/test', [PushSubscriptionController::class, 'testNotification'])->middleware('auth')->name('push.test');
+
+

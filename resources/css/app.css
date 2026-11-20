@@ -518,3 +518,43 @@ main {
     width: 150px;
 }
 
+/* --- Styles PWA (Progressive Web App) & Notifications Push --- */
+.pwa-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-top: 3px solid var(--ea-accent);
+    z-index: 1050;
+    box-shadow: 0 -4px 20px rgba(9, 91, 134, 0.15);
+    animation: slideUpBanner 0.35s ease-out;
+}
+
+@keyframes slideUpBanner {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.pwa-banner-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid rgba(9, 91, 134, 0.2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.smaller {
+    font-size: 0.78rem;
+    line-height: 1.25;
+}
+
+.btn-install-pwa {
+    white-space: nowrap;
+}
+

@@ -30,3 +30,9 @@ SESSION_SAME_SITE=lax
 # Système de fichiers & Téléversements
 FILESYSTEM_DISK=local
 PDF_MAX_SIZE_MB=20
+
+# Notifications Web Push VAPID
+VAPID_SUBJECT=mailto:admin@educ-academy.alwaysdata.net
+VAPID_PUBLIC_KEY=BG-qiUaedG7YBKn3npY3WAlkcEYvhjug9uOvWK_p3HzaooAdw67mMlg8MXCj6b8PE8FcSf91Xqjj9iz8XRkMhR4
+VAPID_PRIVATE_KEY=Uw_iZEctq8zBzz49uSROCUf7U3ZGKMWln_FRhkvnY8c
+

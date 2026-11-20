@@ -15,7 +15,10 @@
                     Année scolaire <strong>{{ $schoolYear->label ?? 'en cours' }}</strong> &bull; Tous vos cours et exercices classés par mois d'apprentissage.
                 </p>
             </div>
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center gap-2">
+                <button type="button" class="btn btn-outline-primary btn-sm btn-toggle-push shadow-sm" title="Activer les notifications push sur votre smartphone">
+                    <i class="bi bi-bell me-1"></i> Notifications
+                </button>
                 <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 px-3 py-2">
                     <i class="bi bi-shield-check me-1"></i> Compte autorisé
                 </span>

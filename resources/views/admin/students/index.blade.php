@@ -11,6 +11,11 @@
             </h2>
             <p class="text-muted small mb-0">Validez les inscriptions, gérez les accès et réinitialisez les mots de passe pour WhatsApp.</p>
         </div>
+        <div>
+            <button type="button" class="btn btn-outline-primary btn-sm shadow-sm" data-bs-toggle="modal" data-bs-target="#broadcastPushModal">
+                <i class="bi bi-broadcast me-1"></i> Envoyer une notification push
+            </button>
+        </div>
     </div>
 
     <!-- Notification mot de passe temporaire généré pour WhatsApp -->
@@ -243,6 +248,45 @@
         @endif
     </div>
 
+</div>
+
+<!-- Modale de diffusion d'une notification push -->
+<div class="modal fade" id="broadcastPushModal" tabindex="-1" aria-labelledby="broadcastPushModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form method="POST" action="{{ route('admin.students.broadcast-push') }}">
+            @csrf
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header modal-header-ea">
+                    <h5 class="modal-title fw-bold" id="broadcastPushModalLabel">
+                        <i class="bi bi-broadcast me-2 text-ea-accent"></i> Diffuser une notification push
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="alert alert-info small mb-3">
+                        <i class="bi bi-info-circle-fill me-1"></i>
+                        Ce message sera envoyé directement sur l'écran des smartphones de tous les élèves autorisés qui ont activé les notifications.
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="push_title" class="form-label fw-semibold">Titre de la notification <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="push_title" name="title" placeholder="Ex: 📢 Rappel de cours de Mathématiques" required maxlength="100">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="push_message" class="form-label fw-semibold">Message <span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="push_message" name="message" rows="3" placeholder="Ex: Une nouvelle série d'exercices avec corrigé type vient d'être mise en ligne." required maxlength="255"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-primary fw-bold">
+                        <i class="bi bi-send me-1"></i> Envoyer aux élèves
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 
 <script>

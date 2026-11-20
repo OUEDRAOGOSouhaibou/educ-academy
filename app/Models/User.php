@@ -113,4 +113,9 @@ class User extends Authenticatable
     {
         return $this->status === UserStatus::Blocked;
     }
+
+    public function pushSubscriptions(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(PushSubscription::class);
+    }
 }
